@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:text="Overview Fragment"
         android:textAlignment="center"
-        android:textSize="30sp"
-        android:visibility="visible" />
+        android:textSize="30sp" />
 
 </FrameLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/nav_calendar"
+        android:icon="@drawable/ic_calendar_black"
+        android:title="calendar" />
+
+    <item
+        android:id="@+id/nav_timetable"
+        android:icon="@drawable/ic_timetable_black"
+        android:title="timetable" />
+
+    <item
+        android:id="@+id/nav_overview"
+        android:icon="@drawable/ic_overview_black"
+        android:title="overview" />
+
+
+    <item
+        android:id="@+id/nav_subject"
+        android:icon="@drawable/ic_subject_black"
+        android:title="subject" />
+    <item
+        android:id="@+id/nav_grade"
+        android:icon="@drawable/ic_grade_black"
+        android:title="grade" />
+
+</menu>

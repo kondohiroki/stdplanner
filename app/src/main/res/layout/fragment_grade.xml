@@ -10,6 +10,6 @@
         android:layout_height="match_parent"
         android:text="Grade Fragment"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="30sp"/>
 
 </FrameLayout>
