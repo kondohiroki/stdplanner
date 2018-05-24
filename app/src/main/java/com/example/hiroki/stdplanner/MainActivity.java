@@ -7,8 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
+    DatabaseHelper db;
     private TextView mTextMessage;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -51,6 +56,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        db = new DatabaseHelper(getApplicationContext());
+        db.addSubject("c programming2","78-301","Elvin",1,"#FFFFFF");
+        db.addGrade(4.0,1,3);
+//        Calendar now = Calendar.getInstance();
+//        now.set(Calendar.HOUR, 0);
+//        now.set(Calendar.MINUTE, 0);
+//        //.out.println(sdf.format(now.getTime()));
+//        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+
+        db.addTimetable(1,"mon","10.00", "10.30", "78-301", "akara", "#FFFFFF");
+        db.addExam("digitalFinal",1,"2018-05-25");
+        db.addHomework("c-programming",1,"2018-06-22");
+        db.addReminder("birthday","2018-03-22");
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
