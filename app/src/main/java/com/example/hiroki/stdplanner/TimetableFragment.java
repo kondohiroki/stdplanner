@@ -22,8 +22,10 @@ public class TimetableFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((MainActivity)getActivity()).setActionBarTitle("Timetable");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_timetable, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_timetable, container, false);
+        return rootView;
     }
 
 }

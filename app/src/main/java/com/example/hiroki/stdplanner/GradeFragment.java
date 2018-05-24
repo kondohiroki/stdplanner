@@ -22,8 +22,10 @@ public class GradeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((MainActivity)getActivity()).setActionBarTitle("Grade");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_grade, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_grade, container, false);
+        return rootView;
     }
 
 }
