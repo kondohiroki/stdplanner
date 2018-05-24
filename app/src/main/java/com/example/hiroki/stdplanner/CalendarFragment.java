@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.applandeo.materialcalendarview.CalendarView;
 import com.github.clans.fab.FloatingActionMenu;
 import com.github.clans.fab.FloatingActionButton;
 
@@ -18,6 +19,7 @@ import com.github.clans.fab.FloatingActionButton;
  */
 public class CalendarFragment extends Fragment {
 
+    CalendarView calendarView;
 
     public CalendarFragment() {
         // Required empty public constructor
@@ -58,6 +60,10 @@ public class CalendarFragment extends Fragment {
                 startActivity(itn);
             }
         });
+
+        calendarView = (CalendarView) rootView.findViewById(R.id.calendarView);
+        calendarView.showCurrentMonthPage();
+
 
         return rootView;
     }
