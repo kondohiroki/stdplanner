@@ -2,14 +2,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.hiroki.stdplanner.CalendarFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fabmenu_calendar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Calendar Fragment"
-        android:textAlignment="center"
-        android:textSize="30sp"/>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        fab:menu_labels_ellipsize="end"
+        fab:menu_labels_singleLine="true"
+        fab:menu_backgroundColor="#80a7a7a7"
+        android:layout_gravity="end|bottom">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_reminder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_alert"
+            fab:fab_colorNormal="@color/cardview_light_background"
+            fab:fab_size="mini"
+            fab:fab_label="Reminder" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_exam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_exam"
+            fab:fab_colorNormal="@color/cardview_light_background"
+            fab:fab_size="mini"
+            fab:fab_label="Exam" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_homework"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_homework"
+            fab:fab_colorNormal="@color/cardview_light_background"
+            fab:fab_size="mini"
+            fab:fab_label="Homework" />
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 </FrameLayout>

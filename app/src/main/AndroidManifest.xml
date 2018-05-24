@@ -18,7 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddSubjectActivity"></activity>
+        <activity android:name=".AddSubjectActivity" />
+        <activity android:name=".AddReminderActivity" />
+        <activity android:name=".AddExamActivity" />
+        <activity android:name=".AddHomeworkActivity"></activity>
     </application>
 
 </manifest>
