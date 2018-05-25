@@ -14,16 +14,17 @@ public class MyCardAdapter extends RecyclerView.Adapter<MyCardAdapter.ViewHolder
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout,parent,false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.card_layout,parent,false);
         ViewHolder dataObjectHolder = new ViewHolder(view);
         return dataObjectHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.subject.setText(mDataset.get(position).getmTextSubject());
-        holder.room.setText(mDataset.get(position).getmTextRoom());
-        holder.teacher.setText(mDataset.get(position).getmTextTeacher());
+        holder.subjectC.setText(mDataset.get(position).getmTextSubject());
+        holder.roomC.setText(mDataset.get(position).getmTextRoom());
+        holder.teacherC.setText(mDataset.get(position).getmTextTeacher());
     }
 
     @Override
@@ -35,21 +36,15 @@ public class MyCardAdapter extends RecyclerView.Adapter<MyCardAdapter.ViewHolder
         mDataset =myDataset;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView subject,room,teacher;
+        TextView subjectC,roomC,teacherC;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            subject = (TextView)itemView.findViewById(R.id.cardSubjectShow);
-            room = (TextView)itemView.findViewById(R.id.cardRoomShow);
-            teacher = (TextView)itemView.findViewById(R.id.cardTeacherShow);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-
+            subjectC = (TextView)itemView.findViewById(R.id.cardSubjectShow);
+            roomC = (TextView)itemView.findViewById(R.id.cardRoomShow);
+            teacherC = (TextView)itemView.findViewById(R.id.cardTeacherShow);
         }
     }
 }

@@ -14,7 +14,7 @@ import java.util.Locale;
 public class DatabaseHelper extends SQLiteOpenHelper{
 
     private static final String LOG = "DatabaseHelper";
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
     private static final String DATABASE_NAME = "studentApp.db";
 
     // Table names
@@ -172,7 +172,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 null,
                 null,
                 null,
-                KEY_ID + " ASC"
+                null,
+                null
         );
         return cur;
     }

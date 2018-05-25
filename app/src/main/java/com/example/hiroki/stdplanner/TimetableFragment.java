@@ -49,7 +49,7 @@ public class TimetableFragment extends Fragment {
     }
 
     private void initData(){
-        timeTable.setStartHour(4);
+        timeTable.setStartHour(1);
         timeTable.setShowHeader(true);
         timeTable.setTableMode(TimeTableView.TableMode.SHORT);
 
