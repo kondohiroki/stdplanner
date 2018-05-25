@@ -24,46 +24,37 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
-                android:hint="Add Title"
+                android:hint="Add Grade"
                 android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/subject_Grade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/title"
+                android:layout_below="@id/title_Grade"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
                 android:autofillHints="select" />
 
-            <EditText
-                android:id="@+id/room_Grade"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/color"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp"
-                android:hint="Add a room"
-                android:textSize="18sp" />
+
 
             <EditText
-                android:id="@+id/teacher"
+                android:id="@+id/weight_Grade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/room"
+                android:layout_below="@id/subject_Grade"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
-                android:hint="Add a teacher"
+                android:hint="Add Weight"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/semisterText_Grade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/teacher"
+                android:layout_below="@id/weight_Grade"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
@@ -75,10 +66,9 @@
                 android:id="@+id/semister_group_Grade"
                 android:layout_width="match_parent"
                 android:layout_height="29dp"
-                android:layout_alignEnd="@+id/title"
-                android:layout_below="@id/teacher"
+                android:layout_below="@id/weight_Grade"
                 android:layout_marginTop="30dp"
-                android:layout_toRightOf="@id/semisterText"
+                android:layout_toRightOf="@id/semisterText_Grade"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -102,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:layout_below="@id/semisterText"
+                android:layout_below="@id/semister_group_Grade"
                 android:layout_marginTop="100dp"
                 android:text="add" />
 
