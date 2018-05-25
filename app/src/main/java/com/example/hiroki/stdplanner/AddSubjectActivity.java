@@ -1,8 +1,15 @@
 package com.example.hiroki.stdplanner;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.graphics.Color;
+import android.media.RingtoneManager;
+import android.os.Build;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +19,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 public class AddSubjectActivity extends AppCompatActivity {
+
+    private static final int NOTIFICATION_ID = 1;
+    private static final String NOTIFICATION_CHANNEL_ID = "my_notification_channel";
 
     EditText etTitle;
     EditText etRoom;
@@ -26,8 +36,33 @@ public class AddSubjectActivity extends AppCompatActivity {
     int selectedId;
     DatabaseHelper db;
 
+
     @Override
     public void onBackPressed() {
+//        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "My Notifications", NotificationManager.IMPORTANCE_DEFAULT);
+//
+//            // Configure the notification channel.
+//            notificationChannel.setDescription("Channel description");
+//            notificationChannel.enableLights(true);
+//            notificationChannel.setLightColor(Color.RED);
+//            notificationChannel.setVibrationPattern(new long[]{0, 1000, 500, 1000});
+//            notificationChannel.enableVibration(true);
+//            notificationManager.createNotificationChannel(notificationChannel);
+//        }
+//
+//        NotificationCompat.Builder builder = new NotificationCompat.Builder
+//                (this, NOTIFICATION_CHANNEL_ID)
+//                .setVibrate(new long[]{0, 100, 100, 100, 100, 100})
+//                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+//                .setSmallIcon(R.mipmap.ic_launcher)
+//                .setContentTitle("Congratulations")
+//                .setContentText("Add Subject Success");
+//
+//        notificationManager.notify(NOTIFICATION_ID, builder.build());
+
         setResult(Activity.RESULT_OK);
         finishAndRemoveTask();
     }

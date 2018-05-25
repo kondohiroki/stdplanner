@@ -72,6 +72,17 @@ public class GradeFragment extends Fragment {
     }
 
     private void getData(){
+        db = new DatabaseHelper(getActivity());
+        c = db.getAllGrade();
+        if (c != null && c.moveToFirst()) {
+            do {
+                String subject_name = c.getString(c.getColumnIndex("subject_name"));
+                String grade_value = c.getString(c.getColumnIndex("grade_value"));
+                String grade_weight = c.getString(c.getColumnIndex("grade_weight"));
+                datas.add(new Data(subject_name,grade_value,grade_weight));
+            } while(c.moveToNext());
+            db.close();
+        }
     }
 
     public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {

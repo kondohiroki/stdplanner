@@ -14,7 +14,7 @@ import java.util.Locale;
 public class DatabaseHelper extends SQLiteOpenHelper{
 
     private static final String LOG = "DatabaseHelper";
-    private static final int DATABASE_VERSION = 11;
+    private static final int DATABASE_VERSION = 12;
     private static final String DATABASE_NAME = "studentApp.db";
 
     // Table names
@@ -163,7 +163,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public Cursor getAllSubject(){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String[] columns = {"id","subject_name","subject_room","subject_teacher",
+        String[] columns = {"id","grade_value","grade_weight","subject_teacher",
                 "subject_semister","subject_color"};
         Cursor cur = db.query(
           TABLE_SUBJECT,
@@ -175,6 +175,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 null,
                 null
         );
+        db.close();
         return cur;
     }
 
@@ -189,6 +190,15 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         long row = db.insert(DatabaseHelper.TABLE_GRADE, null, values);
         db.close();
         return row;
+    }
+
+    public Cursor getAllGrade(){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String sql = "SELECT grade_value, grade_weight, subject_name FROM grade INNER JOIN subject ON grade.grade_subject=subject.id";
+        Cursor cur = db.rawQuery(sql,null,null);
+        db.close();
+        return cur;
     }
 
     public long addTimetable(int subjectID, String day, String start, String end,
