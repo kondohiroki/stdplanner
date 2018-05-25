@@ -33,6 +33,7 @@ public class MyCardAdapter extends RecyclerView.Adapter<MyCardAdapter.ViewHolder
     }
 
     public MyCardAdapter (List<Data> myDataset){
+
         mDataset =myDataset;
     }
 
