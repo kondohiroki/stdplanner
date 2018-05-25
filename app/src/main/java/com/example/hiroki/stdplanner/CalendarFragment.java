@@ -25,7 +25,6 @@ public class CalendarFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,10 +62,6 @@ public class CalendarFragment extends Fragment {
 
         calendarView = (CalendarView) rootView.findViewById(R.id.calendarView);
         calendarView.showCurrentMonthPage();
-
-
         return rootView;
     }
-
-
 }

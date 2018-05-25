@@ -1,5 +1,8 @@
 package com.example.hiroki.stdplanner;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +27,11 @@ public class AddSubjectActivity extends AppCompatActivity {
     DatabaseHelper db;
 
     @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_subject);
@@ -46,10 +54,21 @@ public class AddSubjectActivity extends AppCompatActivity {
                 semister = Integer.valueOf(radioButton.getText().toString());
 
                 db = new DatabaseHelper(getApplicationContext());
-                db.addSubject(subjectTitle,subjectRoom,subjectTeacher,semister,"#FFFFFF");
-                
+                long rowInserted = db.addSubject(subjectTitle,subjectRoom,subjectTeacher,semister,"#FFFFFF");
+                if (rowInserted != -1){
+//                    Snackbar.make(view,"Add "+subjectTitle+" success!",Snackbar.LENGTH_LONG)
+//                            .setAction("Action",null)
+//                            .show();
+                    onBackPressed();
+                }else {
+                    Snackbar.make(view,"Add "+subjectTitle+" Fail!",Snackbar.LENGTH_LONG)
+                            .setAction("Action",null)
+                            .show();
+                }
+
             }
         });
+
 
     }
 }

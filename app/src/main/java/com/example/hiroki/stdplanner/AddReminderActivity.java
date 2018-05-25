@@ -1,9 +1,11 @@
 package com.example.hiroki.stdplanner;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -16,6 +18,9 @@ public class AddReminderActivity extends AppCompatActivity {
     ImageButton bt,addBT,cancleBT;
     Calendar calendar;
     int day,month,year;
+
+    Button btnReminder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,15 @@ public class AddReminderActivity extends AppCompatActivity {
                     }
                 },year,month,day);
                 datePickerDialog.show();
+            }
+        });
+
+
+        btnReminder = (Button)findViewById(R.id.addBotton_reminder);
+        btnReminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
