@@ -28,7 +28,8 @@ public class AddSubjectActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
+        setResult(Activity.RESULT_OK);
+        finishAndRemoveTask();
     }
 
     @Override

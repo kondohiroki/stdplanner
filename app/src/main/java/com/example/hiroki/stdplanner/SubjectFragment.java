@@ -1,6 +1,7 @@
 package com.example.hiroki.stdplanner;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,11 +16,19 @@ import android.view.ViewGroup;
  */
 public class SubjectFragment extends Fragment {
 
-
+    android.support.v4.app.FragmentTransaction ft;
     public SubjectFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if ((requestCode == 10001) && (resultCode == Activity.RESULT_OK)){
+            ft = getFragmentManager().beginTransaction();
+            ft.detach(this).attach(this).commit();
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,7 +41,7 @@ public class SubjectFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent itn = new Intent(getActivity(), AddSubjectActivity.class);
-                startActivity(itn);
+                startActivityForResult(itn,10001);
             }
         });
         // Inflate the layout for this fragment
@@ -40,10 +49,5 @@ public class SubjectFragment extends Fragment {
 
     }
 
-
-    public void openAddSubject(View v){
-        Intent itn = new Intent(getActivity(), AddSubjectActivity.class);
-        startActivity(itn);
-    }
 
 }

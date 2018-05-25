@@ -1,6 +1,7 @@
 package com.example.hiroki.stdplanner;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -20,9 +21,19 @@ import com.github.clans.fab.FloatingActionButton;
 public class CalendarFragment extends Fragment {
 
     CalendarView calendarView;
+    android.support.v4.app.FragmentTransaction ft;
 
     public CalendarFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if ((requestCode == 10001) && (resultCode == Activity.RESULT_OK)){
+            ft = getFragmentManager().beginTransaction();
+            ft.detach(this).attach(this).commit();
+        }
     }
 
     @Override
@@ -40,7 +51,8 @@ public class CalendarFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent itn = new Intent(getActivity(), AddReminderActivity.class);
-                startActivity(itn);
+                //startActivity(itn);
+                startActivityForResult(itn,10001);
             }
         });
 

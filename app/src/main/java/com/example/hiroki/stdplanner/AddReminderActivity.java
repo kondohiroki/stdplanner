@@ -1,5 +1,6 @@
 package com.example.hiroki.stdplanner;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,11 @@ public class AddReminderActivity extends AppCompatActivity {
 
     Button btnReminder;
 
+    @Override
+    public void onBackPressed() {
+        setResult(Activity.RESULT_OK);
+        finishAndRemoveTask();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +67,7 @@ public class AddReminderActivity extends AppCompatActivity {
         btnReminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                onBackPressed();
             }
         });
     }
