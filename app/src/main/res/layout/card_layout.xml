@@ -73,7 +73,7 @@
             android:textSize="18dp" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/cardButton"
             android:layout_width="23dp"
             android:layout_height="22dp"
             android:layout_alignParentBottom="true"

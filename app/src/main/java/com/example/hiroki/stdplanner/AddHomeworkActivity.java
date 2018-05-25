@@ -22,8 +22,8 @@ public class AddHomeworkActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_homework);
         getSupportActionBar().setTitle("Add homework");
-        tv = (TextView) findViewById(R.id.showDate);
-        bt = (ImageButton) findViewById(R.id.calendarPicker);
+        tv = (TextView) findViewById(R.id.showDate_Homework);
+        bt = (ImageButton) findViewById(R.id.cPicker_Homework);
 
         calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("UTC"));

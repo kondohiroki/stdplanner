@@ -20,7 +20,7 @@ import java.util.TimeZone;
 public class AddExamActivity extends AppCompatActivity {
 
     TextView tv;
-    ImageButton bt,addBT,cancleBT;
+    ImageButton bt;
     Calendar calendar;
     int day,month,year;
 
@@ -30,8 +30,8 @@ public class AddExamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_exam);
         getSupportActionBar().setTitle("Add exam");
-        tv = (TextView) findViewById(R.id.showDate);
-        bt = (ImageButton) findViewById(R.id.calendarPicker);
+        tv = (TextView) findViewById(R.id.showDate_Exam);
+        bt = (ImageButton) findViewById(R.id.cPicker_Exam);
 
         calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("UTC"));

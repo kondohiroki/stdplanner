@@ -7,7 +7,7 @@
     tools:context="com.example.hiroki.stdplanner.AddExamActivity">
 
     <EditText
-        android:id="@+id/title"
+        android:id="@+id/title_Exam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -19,11 +19,11 @@
         android:textSize="20sp" />
 
     <Spinner
-        android:id="@+id/subject"
+        android:id="@+id/subject_Exam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_below="@id/title"
+        android:layout_below="@id/title_Exam"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:autofillHints="select"
@@ -33,7 +33,7 @@
         android:id="@+id/examDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/subject"
+        android:layout_below="@id/subject_Exam"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:text="Exam date"
@@ -42,10 +42,10 @@
         android:textStyle="bold" />
 
     <ImageButton
-        android:id="@+id/calendarPicker"
+        android:id="@+id/cPicker_Exam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/subject"
+        android:layout_below="@id/subject_Exam"
         android:layout_toRightOf="@+id/examDate"
         android:layout_alignBottom="@id/examDate"
         android:layout_marginTop="30dp"
@@ -54,14 +54,14 @@
         app:srcCompat="@drawable/ic_calendar_black" />
 
     <TextView
-        android:id="@+id/showDate"
+        android:id="@+id/showDate_Exam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/examDate"
         android:layout_marginStart="5dp"
-        android:layout_toRightOf="@id/calendarPicker"
+        android:layout_toRightOf="@id/cPicker_Exam"
         android:layout_marginTop="30dp"
-        android:layout_below="@id/subject"
+        android:layout_below="@id/subject_Exam"
         android:text="select exam date"
         android:textSize="20sp" />
 
@@ -78,7 +78,7 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/addBotton"
+        android:id="@+id/addBotton_Exam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

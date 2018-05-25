@@ -16,7 +16,7 @@ import java.util.TimeZone;
 public class AddReminderActivity extends AppCompatActivity {
 
     TextView tv;
-    ImageButton bt,addBT,cancleBT;
+    ImageButton bt;
     Calendar calendar;
     int day,month,year;
 
@@ -34,8 +34,8 @@ public class AddReminderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_reminder);
         getSupportActionBar().setTitle("Add reminder");
 
-        tv = (TextView) findViewById(R.id.showDate);
-        bt = (ImageButton) findViewById(R.id.calendarPicker);
+        tv = (TextView) findViewById(R.id.showDate_Reminder);
+        bt = (ImageButton) findViewById(R.id.cPicker_Reminder);
 
         calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("UTC"));

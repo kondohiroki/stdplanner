@@ -30,6 +30,7 @@
         <activity
             android:name=".AddHomeworkActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AddGradeActivity"></activity>
     </application>
 
 </manifest>
