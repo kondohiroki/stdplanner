@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         db.addHomework("c-programming",1,"2018-06-22");
         db.addReminder("birthday","2018-03-22");
         mTextMessage = (TextView) findViewById(R.id.message);
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
