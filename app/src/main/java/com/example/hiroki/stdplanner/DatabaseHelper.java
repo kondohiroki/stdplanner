@@ -2,6 +2,7 @@ package com.example.hiroki.stdplanner;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -157,6 +158,23 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         long row = db.insert(DatabaseHelper.TABLE_SUBJECT, null, values);
         db.close();
         return row;
+    }
+
+    public Cursor getAllSubject(){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = {"id","subject_name","subject_room","subject_teacher",
+                "subject_semister","subject_color"};
+        Cursor cur = db.query(
+          TABLE_SUBJECT,
+          columns,
+                null,
+                null,
+                null,
+                null,
+                KEY_ID + " ASC"
+        );
+        return cur;
     }
 
     public long addGrade(double gradeValue, int subjectID, int weight){
