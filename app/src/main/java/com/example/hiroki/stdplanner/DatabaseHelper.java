@@ -163,7 +163,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public Cursor getAllSubject(){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String[] columns = {"id","grade_value","grade_weight","subject_teacher",
+        String[] columns = {"id","subject_name","subject_room","subject_teacher",
                 "subject_semister","subject_color"};
         Cursor cur = db.query(
           TABLE_SUBJECT,
