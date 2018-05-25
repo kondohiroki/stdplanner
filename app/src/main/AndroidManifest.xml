@@ -18,14 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddSubjectActivity"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".AddReminderActivity"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".AddExamActivity"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".AddHomeworkActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".AddSubjectActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".AddReminderActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".AddExamActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".AddHomeworkActivity"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
