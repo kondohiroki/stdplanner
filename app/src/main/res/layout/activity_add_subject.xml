@@ -72,6 +72,7 @@
                 android:textStyle="bold" />
 
             <RadioGroup
+                android:id="@+id/semister_group"
                 android:layout_width="match_parent"
                 android:layout_height="29dp"
                 android:layout_alignEnd="@+id/title"
@@ -96,7 +97,7 @@
             </RadioGroup>
 
             <Button
-                android:id="@+id/addBotton"
+                android:id="@+id/addBotton_subject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
