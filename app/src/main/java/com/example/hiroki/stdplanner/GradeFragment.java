@@ -64,14 +64,14 @@ public class GradeFragment extends Fragment {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         datas = new ArrayList<Data>();
-        getData();
+        getDataJoin();
 
         listAdapter = new ListAdapter(datas);
         recyclerView.setAdapter(listAdapter);
         return rootView;
     }
 
-    private void getData(){
+    private void getDataJoin(){
         db = new DatabaseHelper(getActivity());
         c = db.getAllGrade();
         if (c != null && c.moveToFirst()) {

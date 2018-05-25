@@ -34,7 +34,8 @@ public class AddGradeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_grade);
-        getActionBar().setTitle("Add grade");
+        getSupportActionBar().setTitle("Add grade");
+
         Spinner spinner = (Spinner) findViewById(R.id.subject_Grade);
         getData();
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
@@ -73,13 +74,10 @@ public class AddGradeActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
-
     private void getData(){
-        spinList.clear();
+        //spinList.clear();
         db = new DatabaseHelper(this);
         c = db.getAllSubject();
         spinList.add("Select Subject");
