@@ -18,6 +18,7 @@ public class AddReminderActivity extends AppCompatActivity {
     TextView tv;
     ImageButton bt;
     Calendar calendar;
+
     int day,month,year;
 
     Button btnReminder;
@@ -61,6 +62,7 @@ public class AddReminderActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+
 
 
         btnReminder = (Button)findViewById(R.id.addBotton_reminder);

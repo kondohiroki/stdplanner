@@ -11,8 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.applandeo.materialcalendarview.CalendarView;
+import com.applandeo.materialcalendarview.EventDay;
 import com.github.clans.fab.FloatingActionMenu;
 import com.github.clans.fab.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 
 /**
@@ -22,6 +27,7 @@ public class CalendarFragment extends Fragment {
 
     CalendarView calendarView;
     android.support.v4.app.FragmentTransaction ft;
+    List<EventDay> events = new ArrayList<>();
 
     public CalendarFragment() {
         // Required empty public constructor
@@ -74,6 +80,14 @@ public class CalendarFragment extends Fragment {
 
         calendarView = (CalendarView) rootView.findViewById(R.id.calendarView);
         calendarView.showCurrentMonthPage();
+
+        Calendar c = Calendar.getInstance();
+        c.set(2018, 7, 5);
+
+        events.add(new EventDay(c, R.drawable.ic_add_alert));
+        calendarView.setEvents(events);
         return rootView;
+
+
     }
 }
