@@ -23,6 +23,7 @@ public class AddGradeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_grade);
+        getActionBar().setTitle("Add grade");
         Spinner spinner = (Spinner) findViewById(R.id.subject_Grade);
         getData();
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
