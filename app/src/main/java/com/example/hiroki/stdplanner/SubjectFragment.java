@@ -6,9 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -17,6 +22,11 @@ import android.view.ViewGroup;
 public class SubjectFragment extends Fragment {
 
     android.support.v4.app.FragmentTransaction ft;
+
+    private MyCardAdapter mCardAdapter;
+    private RecyclerView recyclerView;
+    private List<Data> datas = new ArrayList<>();
+
     public SubjectFragment() {
         // Required empty public constructor
     }
@@ -45,7 +55,17 @@ public class SubjectFragment extends Fragment {
             }
         });
         // Inflate the layout for this fragment
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+
+        mCardAdapter = new MyCardAdapter(datas);
+        getData();
+        recyclerView.setAdapter(mCardAdapter);
         return rootView;
+    }
+
+    private void getData(){
 
     }
 
