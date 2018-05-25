@@ -1,5 +1,6 @@
 package com.example.hiroki.stdplanner;
 
+import android.app.DatePickerDialog;
 import android.net.sip.SipSession;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,14 +15,15 @@ import com.applandeo.materialcalendarview.listeners.OnSelectDateListener;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 public class AddExamActivity extends AppCompatActivity {
 
     TextView tv;
-    ImageButton bt;
+    ImageButton bt,addBT,cancleBT;
     Calendar calendar;
     int day,month,year;
-    private OnSelectDateListener listener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +32,9 @@ public class AddExamActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Add exam");
         tv = (TextView) findViewById(R.id.showDate);
         bt = (ImageButton) findViewById(R.id.calendarPicker);
-        calendar = Calendar.getInstance();
 
+        calendar = Calendar.getInstance();
+        calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
 
         day = calendar.get(Calendar.DAY_OF_MONTH);
         month = calendar.get(Calendar.MONTH);
@@ -44,18 +47,14 @@ public class AddExamActivity extends AppCompatActivity {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerBuilder builder = new DatePickerBuilder(AddExamActivity.this, new OnSelectDateListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(AddExamActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onSelect(List<Calendar> calendars) {
-
+                    public void onDateSet(android.widget.DatePicker datePicker, int yeaR, int monthOfYear, int dayOfMonth) {
+                        monthOfYear+=1;
+                        tv.setText(dayOfMonth+"/"+monthOfYear+"/"+yeaR);
                     }
-                }).pickerType(CalendarView.ONE_DAY_PICKER).date(Calendar.getInstance());
-
-
-
-                DatePicker datePicker = builder.build();
-                datePicker.show();
-
+                },year,month,day);
+                datePickerDialog.show();
             }
         });
     }
