@@ -1,5 +1,6 @@
 package com.example.hiroki.stdplanner;
 
+import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -18,10 +19,17 @@ import java.util.List;
 public class AddGradeActivity extends AppCompatActivity {
 
 
-    EditText et1,et2,et3,et4;
+    //EditText et1,et2,et3,et4;
     DatabaseHelper db;
     Cursor c;
     final List<String> spinList = new ArrayList<>();
+
+    @Override
+    public void onBackPressed() {
+        setResult(Activity.RESULT_OK);
+        finishAndRemoveTask();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

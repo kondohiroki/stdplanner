@@ -175,7 +175,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 null,
                 null
         );
-        db.close();
         return cur;
     }
 
@@ -197,7 +196,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         String sql = "SELECT grade_value, grade_weight, subject_name FROM grade INNER JOIN subject ON grade.grade_subject=subject.id";
         Cursor cur = db.rawQuery(sql,null,null);
-        db.close();
         return cur;
     }
 
