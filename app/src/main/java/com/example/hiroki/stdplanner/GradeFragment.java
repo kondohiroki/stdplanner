@@ -112,7 +112,6 @@ public class GradeFragment extends Fragment {
             holder.subjectH.setText(dataArrayList.get(position).getmTextSubject());
             holder.gradeH.setText(dataArrayList.get(position).getmTextRoom());
             holder.weightH.setText(dataArrayList.get(position).getmTextTeacher());
-
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

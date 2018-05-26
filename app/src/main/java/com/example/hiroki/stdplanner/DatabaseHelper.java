@@ -178,6 +178,25 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return cur;
     }
 
+    public Cursor getRecordSubject(String subjectName){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"id"};
+        String[] selectionArgs = { subjectName };
+
+        Cursor cur = db.query(
+                TABLE_SUBJECT,
+                columns,
+                KEY_SUBJECT_NAME + " =?",
+                selectionArgs,
+                null,
+                null,
+                null,
+                null
+        );
+
+        return cur;
+    }
+
     public long addGrade(double gradeValue, int subjectID, int weight){
         SQLiteDatabase db = this.getWritableDatabase();
 

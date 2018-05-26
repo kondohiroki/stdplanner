@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -19,7 +23,17 @@ import java.util.List;
 public class AddGradeActivity extends AppCompatActivity {
 
 
-    //EditText et1,et2,et3,et4;
+    EditText eTgradeValue;
+    int gradeSubjectID;
+    EditText eTgradeWeight;
+    RadioGroup rgSemister;
+    RadioButton radioButton;
+    Button addBtn;
+    double gradeValue;
+    String gradeSubject;
+    int gradeWeight;
+    int selectedId;
+
     DatabaseHelper db;
     Cursor c;
     final List<String> spinList = new ArrayList<>();
@@ -35,6 +49,13 @@ public class AddGradeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_grade);
         getSupportActionBar().setTitle("Add grade");
+
+        eTgradeValue = (EditText)findViewById(R.id.title_Grade);
+        eTgradeWeight = (EditText)findViewById(R.id.weight_Grade);
+        rgSemister = (RadioGroup)findViewById(R.id.semister_group_Grade);
+        selectedId = rgSemister.getCheckedRadioButtonId();
+        radioButton = (RadioButton)findViewById(selectedId);
+        addBtn = (Button) findViewById(R.id.addBotton_Grade);
 
         Spinner spinner = (Spinner) findViewById(R.id.subject_Grade);
         getData();
@@ -65,7 +86,7 @@ public class AddGradeActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                gradeSubject = String.valueOf(adapterView.getItemIdAtPosition(i));
             }
 
             @Override
@@ -74,10 +95,29 @@ public class AddGradeActivity extends AppCompatActivity {
             }
         });
 
+
+
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gradeValue = Double.valueOf(eTgradeValue.getText().toString());
+                gradeWeight = Integer.valueOf(eTgradeWeight.getText().toString());
+                db = new DatabaseHelper(getApplicationContext());
+                c = db.getRecordSubject(gradeSubject);
+                c.moveToFirst();
+                //int id = c.getInt(c.getColumnIndex("id"));
+                //System.out.println("id=>>>"+id);
+                db.addGrade(gradeValue,1,gradeWeight);
+
+                onBackPressed();
+            }
+        });
+
+
     }
 
     private void getData(){
-        //spinList.clear();
+        spinList.clear();
         db = new DatabaseHelper(this);
         c = db.getAllSubject();
         spinList.add("Select Subject");
@@ -88,5 +128,11 @@ public class AddGradeActivity extends AppCompatActivity {
             } while(c.moveToNext());
             db.close();
         }
+    }
+    private void addGrade(){
+        DatabaseHelper db2 = new DatabaseHelper(this);
+        //gradeSubjectID = db2.getRecordSubject(gradeSubject);
+        long row = db2.addGrade(gradeValue,gradeSubjectID,gradeWeight);
+        db2.close();
     }
 }
