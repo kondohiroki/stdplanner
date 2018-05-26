@@ -2,7 +2,9 @@ package com.example.hiroki.stdplanner;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
@@ -25,10 +27,14 @@ import java.util.List;
  */
 public class CalendarFragment extends Fragment {
 
+    DatabaseHelper db;
+    Cursor c;
+
     CalendarView calendarView;
     android.support.v4.app.FragmentTransaction ft;
     List<EventDay> events = new ArrayList<>();
 
+    ArrayList datas;
     public CalendarFragment() {
         // Required empty public constructor
     }
@@ -39,6 +45,21 @@ public class CalendarFragment extends Fragment {
         if ((requestCode == 10001) && (resultCode == Activity.RESULT_OK)){
             ft = getFragmentManager().beginTransaction();
             ft.detach(this).attach(this).commit();
+            db = new DatabaseHelper(getActivity());
+            c = db.getAllReminder();
+            if (c != null && c.moveToFirst()) {
+                do {
+                    int dd = c.getInt(c.getColumnIndex("reminder_day"));
+                    int mm = c.getInt(c.getColumnIndex("reminder_month"));
+                    int yy = c.getInt(c.getColumnIndex("reminder_year"));
+                    System.out.println("dd mm yy"+dd+""+mm+""+yy);
+                    Calendar ca = Calendar.getInstance();
+                    ca.set(yy, mm, dd);
+                    events.add(new EventDay(ca, R.drawable.ic_add_alert));
+                    calendarView.setEvents(events);
+                } while(c.moveToNext());
+                db.close();
+            }
         }
     }
 
@@ -81,13 +102,41 @@ public class CalendarFragment extends Fragment {
         calendarView = (CalendarView) rootView.findViewById(R.id.calendarView);
         calendarView.showCurrentMonthPage();
 
-        Calendar c = Calendar.getInstance();
-        c.set(2018, 7, 5);
+        db = new DatabaseHelper(getActivity());
+        c = db.getAllReminder();
+        if (c != null && c.moveToFirst()) {
+            do {
+                int dd = c.getInt(c.getColumnIndex("reminder_day"));
+                int mm = c.getInt(c.getColumnIndex("reminder_month"));
+                int yy = c.getInt(c.getColumnIndex("reminder_year"));
+                Calendar ca = Calendar.getInstance();
+                ca.set(yy, mm, dd);
+                events.add(new EventDay(ca, R.drawable.ic_add_alert));
+                calendarView.setEvents(events);
+            } while(c.moveToNext());
+            db.close();
+        }
 
-        events.add(new EventDay(c, R.drawable.ic_add_alert));
-        calendarView.setEvents(events);
+
+
         return rootView;
 
+    }
+    public void getReminder(){
+        db = new DatabaseHelper(getActivity());
+        c = db.getAllReminder();
+        if (c != null && c.moveToFirst()) {
+            do {
+                int dd = c.getInt(c.getColumnIndex("reminder_day"));
+                int mm = c.getInt(c.getColumnIndex("reminder_month"));
+                int yy = c.getInt(c.getColumnIndex("reminder_year"));
+                Calendar ca = Calendar.getInstance();
+                ca.set(yy, mm, dd);
+                events.add(new EventDay(ca, R.drawable.ic_add_alert));
+                calendarView.setEvents(events);
+            } while(c.moveToNext());
+            db.close();
+        }
 
     }
 }

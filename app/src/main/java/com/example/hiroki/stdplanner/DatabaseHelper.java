@@ -14,7 +14,7 @@ import java.util.Locale;
 public class DatabaseHelper extends SQLiteOpenHelper{
 
     private static final String LOG = "DatabaseHelper";
-    private static final int DATABASE_VERSION = 12;
+    private static final int DATABASE_VERSION = 14;
     private static final String DATABASE_NAME = "studentApp.db";
 
     // Table names
@@ -63,7 +63,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     // REMINDER table - column names
     private static final String KEY_REMINDER_TITLE = "reminder_title";
-    private static final String KEY_REMINDER_DATE = "reminder_date";
+    private static final String KEY_REMINDER_DAY = "reminder_day";
+    private static final String KEY_REMINDER_MONTH = "reminder_month";
+    private static final String KEY_REMINDER_YEAR = "reminder_year";
 
     // Table Create Statements
     private static final String CREATE_TABLE_SUBJECT =
@@ -114,7 +116,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String CREATE_TABLE_REMINDER =
             "CREATE TABLE " + TABLE_REMINDER + " (" +
                     KEY_REMINDER_TITLE + " TEXT," +
-                    KEY_REMINDER_DATE + " TEXT)";
+                    KEY_REMINDER_DAY + " INTEGER," +
+                    KEY_REMINDER_MONTH + " INTEGER," +
+                    KEY_REMINDER_YEAR + " INTEGER)";
+
 
 
     public DatabaseHelper(Context context) {
@@ -262,16 +267,35 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return row;
     }
 
-    public long addReminder(String title, String date){
+    public long addReminder(String title, int d,int m ,int y){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_REMINDER_TITLE,title);
-        values.put(KEY_REMINDER_DATE,date);
+        values.put(KEY_REMINDER_DAY,d);
+        values.put(KEY_REMINDER_MONTH,m);
+        values.put(KEY_REMINDER_YEAR,y);
 
         long row = db.insert(DatabaseHelper.TABLE_REMINDER, null, values);
         db.close();
         return row;
+    }
+
+    public Cursor getAllReminder(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"reminder_title","reminder_day","reminder_month","reminder_year"};
+        Cursor cur = db.query(
+                TABLE_REMINDER,
+                columns,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        return cur;
     }
 
     private String getDateTime(){

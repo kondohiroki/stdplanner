@@ -69,6 +69,8 @@ public class AddReminderActivity extends AppCompatActivity {
         btnReminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+                db.addReminder("alertNow!",day,month,year);
                 onBackPressed();
             }
         });
